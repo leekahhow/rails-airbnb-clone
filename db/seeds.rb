@@ -37,7 +37,6 @@ Pet.create(
   description: "A dope as animal.",
   price_per_hour: 13,
   categories_id: 22,
-  user_id:
 )
 
 Pet.create(
@@ -45,7 +44,6 @@ Pet.create(
   description: "Low key best animal to cuddle.",
   price_per_hour: 10,
   categories_id: 23,
-  user_id:
 )
 
 

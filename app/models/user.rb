@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :region
-  has_many :bookings, :pets
+  has_many :bookings
 
   validates :email, presence: true, uniqueness: true
   validates :regions_id, presence: true
