@@ -19,9 +19,8 @@
        <%= render 'shared/flashes' %>
        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 
-
        <% if user_signed_in? %> 
-         <h1>Something</h1>
+          <%= current_user.name %> 
         <% end %>
   </body>
 </html>
