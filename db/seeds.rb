@@ -30,4 +30,21 @@ Category.create(animal_type: "Lizard")
 Category.create(animal_type: "Fish")
 Category.create(animal_type: "Others")
 
+puts "Now Seeding Pets"
+# 3. Seeding Pets
+Pet.create(
+  name: "Herbet",
+  description: "A dope as animal.",
+  price_per_hour: 13,
+  categories_id: 22,
+)
+
+Pet.create(
+  name: "Jim",
+  description: "Low key best animal to cuddle.",
+  price_per_hour: 10,
+  categories_id: 23,
+)
+
+
 puts "Done Seeding"
