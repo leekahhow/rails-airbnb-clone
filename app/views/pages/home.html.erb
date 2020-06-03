@@ -1,2 +1,9 @@
-<h1>Welcome <%= current_user.name %></h1>
-<p>Find your happy pet today!</p>
+<% if user_signed_in? %> 
+   <h1>Welcome <%= current_user.name %></h1>
+   <% raise %>
+   <p>Find your happy pet today!</p>
+ <% end %>
+
+
+
+
