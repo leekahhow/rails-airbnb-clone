@@ -23,7 +23,7 @@ Region.create(name: "South")
 
 puts "Now Seeding Categories"
 # 2. Seeding Categories
-Category.create(animal_type: "Cat")
+cat = Category.create(animal_type: "Cat")
 Category.create(animal_type: "Dog")
 Category.create(animal_type: "Rabbit")
 Category.create(animal_type: "Lizard")
@@ -36,7 +36,8 @@ Pet.create(
   name: "Herbet",
   description: "A dope as animal.",
   price_per_hour: 13,
-  categories_id: 22,
+  category: cat,
+  user: User.all[1]
 )
 
 Pet.create(

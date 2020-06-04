@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_132106) do
+ActiveRecord::Schema.define(version: 2020_06_04_081518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2020_06_03_132106) do
     t.bigint "pet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
+    t.bigint "user_id"
     t.index ["pet_id"], name: "index_bookings_on_pet_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_06_03_132106) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "categories_id"
-    t.index ["categories_id"], name: "index_pets_on_categories_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_pets_on_category_id"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
@@ -71,17 +71,19 @@ ActiveRecord::Schema.define(version: 2020_06_03_132106) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "regions_id"
+    t.bigint "region_id"
     t.string "name"
     t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["regions_id"], name: "index_users_on_regions_id"
+    t.index ["region_id"], name: "index_users_on_region_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "bookings", "pets"
-  add_foreign_key "bookings", "users", column: "users_id"
-  add_foreign_key "pets", "categories", column: "categories_id"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "pets", "categories"
+  add_foreign_key "pets", "categories"
   add_foreign_key "pets", "users"
-  add_foreign_key "users", "regions", column: "regions_id"
+  add_foreign_key "users", "regions"
 end
