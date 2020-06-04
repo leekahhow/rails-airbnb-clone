@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Resetting Database. Destorying all"
+puts "Resetting Database. Destroying all"
 Region.destroy_all
 Category.destroy_all
 
@@ -14,21 +14,21 @@ puts "Seeding Database Now"
 
 puts "Now Seeding Regions"
 # 1. Seeding Regions
-Region.create(name: "Central")
-Region.create(name: "North")
-Region.create(name: "East")
-Region.create(name: "West")
-Region.create(name: "South")
+central = Region.create(name: "Central")
+north = Region.create(name: "North")
+east = Region.create(name: "East")
+west = Region.create(name: "West")
+south = Region.create(name: "South")
 
 
 puts "Now Seeding Categories"
 # 2. Seeding Categories
 cat = Category.create(animal_type: "Cat")
-Category.create(animal_type: "Dog")
-Category.create(animal_type: "Rabbit")
-Category.create(animal_type: "Lizard")
-Category.create(animal_type: "Fish")
-Category.create(animal_type: "Others")
+dog = Category.create(animal_type: "Dog")
+rabbit = Category.create(animal_type: "Rabbit")
+lizard = Category.create(animal_type: "Lizard")
+fish = Category.create(animal_type: "Fish")
+others = Category.create(animal_type: "Others")
 
 puts "Now Seeding Pets"
 # 3. Seeding Pets
@@ -44,7 +44,16 @@ Pet.create(
   name: "Jim",
   description: "Low key best animal to cuddle.",
   price_per_hour: 10,
-  categories_id: 23,
+  category: dog,
+  user: User.last
+)
+puts "Now seeding super prima"
+User.create(
+  name: "prima",
+  email: "primasuper@gmail.com",
+  password: "123456",
+  region: west,
+  phone_number: "97333299"
 )
 
 
