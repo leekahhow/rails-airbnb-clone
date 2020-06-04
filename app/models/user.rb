@@ -7,7 +7,8 @@ class User < ApplicationRecord
   belongs_to :region
   has_many :bookings
 
-  validates :email, presence: true, uniqueness: true
+  validates :email, uniqueness: true
   validates :name, presence: true
-  validates :phone_number, presence: true, uniqueness: true
+  validates :phone_number, presence: true
+  # by format
 end
