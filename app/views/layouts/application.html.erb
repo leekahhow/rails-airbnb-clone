@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RailsAirbnbClone</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>RailsAirbnbClone</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+</head>
 
-  <body>
-    <%= yield %>
-     <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-       <%= render 'shared/navbar' %>
-       <%= render 'shared/flashes' %>
-       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<body>
+ <%= render 'shared/navbar' %>
+ <%= yield %>
+ <%= render 'shared/flashes' %>
 
-       <% if user_signed_in? %> 
-          <%= current_user.name %> 
+ <% if user_signed_in? %> 
+ <%= current_user.name %> 
         <% end %>
-  </body>
+</body>
 </html>
