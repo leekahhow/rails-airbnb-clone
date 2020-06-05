@@ -1,6 +1,6 @@
 <h1>Make your Booking Here!</h1>
 
-<%= simple_form_for @booking  do |f| %>
+<%= simple_form_for (@booking)  do |f| %>
   <%= f.association :pet %>
   <%= f.input :start_date %>
   <%= f.input :hours %>

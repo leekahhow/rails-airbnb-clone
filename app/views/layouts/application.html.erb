@@ -18,8 +18,8 @@
 
   <% if user_signed_in? %> 
     <%= current_user.name %> 
+    <p> User Id: <%= current_user.id %> </p> 
     <%= link_to "View all Pets", pets_path%>
-    <%= link_to "Book a Pet", new_booking_path%>
    <% end %>
 
 </body>
