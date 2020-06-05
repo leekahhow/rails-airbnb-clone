@@ -3,4 +3,9 @@ class Category < ApplicationRecord
 
   validates :animal_type, presence: true
 
+
+  def to_label
+    "#{animal_type}"
+  end
+
 end
