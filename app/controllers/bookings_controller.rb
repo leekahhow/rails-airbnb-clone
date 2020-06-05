@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
   end
 
   #Bookings have an :user_id, :ped_id, :id, :start_date, :hours, :status,
-  #add more bookings
+  #add more bookings delete this
 
   def cancel
     @booking = booking.find(params[:id])
