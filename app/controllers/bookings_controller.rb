@@ -16,13 +16,13 @@ class BookingsController < ApplicationController
     @booking.status = "valid"
     # If/Else Save
     if @booking.save
-      redirect_to bookings_path
+      redirect_to booking_path
     else
       render :new
     end
   end
 
-  #Bookings have an :id, :user_id, :start_date, :hours, :status, :ped_id
+  #Bookings have an :user_id, :ped_id, :id, :start_date, :hours, :status,
 
 
   def cancel
