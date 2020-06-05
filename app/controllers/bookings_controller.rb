@@ -9,7 +9,9 @@ class BookingsController < ApplicationController
     # Pass booking details to new booking instance
     @booking = Booking.new(booking_params)
     # Pass User id to new booking instance
-    @user = User.find(params[:user_id])
+    @booking.user_id = current_user.id
+    # Add Pets id
+    @booking.pet_id = @pet.id
     # Chaning the status = valid of new booking instance
     @booking.status = "valid"
     # If/Else Save

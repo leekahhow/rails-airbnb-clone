@@ -1,8 +1,8 @@
 <h1>Make your Booking Here!</h1>
 
 <%= simple_form_for @booking  do |f| %>
+  <%= f.association :pet %>
   <%= f.input :start_date %>
   <%= f.input :hours %>
-  <%= f.association :pet %>
   <%= f.submit "Make a Booking", class: "btn btn-primary"%>
 <% end %>
