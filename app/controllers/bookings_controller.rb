@@ -1,25 +1,25 @@
 class BookingsController < ApplicationController
 
+
   def new
     # Initiate new Booking Instance
+    @pet = Pet.find(params[:pet_id])
     @booking = Booking.new
+    @booking.pet = @pet
   end
 
   def create
-    # Pass booking details to new booking instance
     @booking = Booking.new(booking_params)
-    # Pass User id to new booking instance
     @booking.user_id = current_user.id
-    # Add Pets id
-    @booking.pet_id = @pet.id
-    # Chaning the status = valid of new booking instance
-    @booking.status = "valid"
-    # If/Else Save
+    # @booking.pet = params[:pet_id]
+    @booking.status = "pending"
+
     if @booking.save
-      redirect_to booking_path
+      redirect_to pets_path
     else
       render :new
     end
+
   end
 
   #Bookings have an :user_id, :ped_id, :id, :start_date, :hours, :status,
@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :hours)
+    params.require(:booking).permit(:pet_id, :start_date, :hours)
   end
 
   def status_params
