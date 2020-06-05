@@ -1,0 +1,6 @@
+<h1>This is a list of ALLL the pets you can book</h1>
+<h2>pets#index</h2>
+
+<% @pets.each do |pet| %>
+  <%= link_to pet.name, pet_path(pet), class: 'btn btn-secondary' %>
+<% end %>
