@@ -12,12 +12,14 @@
 </head>
 
 <body>
- <%= render 'shared/navbar' %>
- <%= yield %>
- <%= render 'shared/flashes' %>
+  <%= render 'shared/navbar' %>
+  <%= yield %>
+  <%= render 'shared/flashes' %>
 
- <% if user_signed_in? %> 
- <%= current_user.name %> 
-        <% end %>
+  <% if user_signed_in? %> 
+    <%= current_user.name %> 
+    <%= link_to "Book a Pet", new_booking_path%>
+   <% end %>
+
 </body>
 </html>
