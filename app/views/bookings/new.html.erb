@@ -1,4 +1,8 @@
-<h3>Make a booking</h3>
+<br>
+<div class = "mx-auto" style="width: 400px;">
+
+<h3><b>Make a booking</b></h3>
+  <%= cl_image_tag @pet.photo.key, height: 200, width: 400, crop: :fill %>
 <h1>Take <%= @pet.name %> Home!</h1>
 
 <%= simple_form_for ([@pet, @booking])  do |f| %>
@@ -6,3 +10,5 @@
   <%= f.input :hours %>
   <%= f.submit "Make a Booking", class: "btn btn-primary"%>
 <% end %>
+</div>
+<br>
