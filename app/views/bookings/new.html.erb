@@ -1,9 +1,8 @@
 <h3>Make a booking</h3>
 <h1>Take <%= @pet.name %> Home!</h1>
 
-<%= simple_form_for (@booking)  do |f| %>
-  <%= f.association :pet %>
-  <%= f.input :start_date %>
+<%= simple_form_for ([@pet, @booking])  do |f| %>
+  <%= f.input :start_date, as: :date, html5:true %>
   <%= f.input :hours %>
   <%= f.submit "Make a Booking", class: "btn btn-primary"%>
 <% end %>
