@@ -70,6 +70,9 @@ puts "Now Seeding Pets"
 #3. Seeding Pets
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file_1 = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file_2 = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
 
 pet_1 = Pet.create(  name: "Jim",
   description: "Low key best animal to cuddle.",
@@ -88,6 +91,9 @@ pet_2 = Pet.create(
   user: User.last
 )
 
+pet_1.photo.attach(io: file_1, filename: 'newpet_1.png', content_type: 'image/png')
+
+
 pet_3 = Pet.create(
   name: "Joker",
   description: "A dope as animal.",
@@ -95,6 +101,8 @@ pet_3 = Pet.create(
   category: cat,
   user: User.all[1]
 )
+
+pet_1.photo.attach(io: file_2, filename: 'newpet_1.png', content_type: 'image/png')
 
 
 
