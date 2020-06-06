@@ -1,12 +1,12 @@
 
-<div class="col-md-12">
+<div class = "mx-auto" style="width: 800px;">
 
     <div class="card-product">
-    <img src="https://images.pexels.com/photos/126407/pexels-photo-126407.jpeg" />
+    <%= cl_image_tag pet.photo.key%>
     <div class="card-product-infos">
       <h2><%= link_to pet.name, pet_path(pet) %> </h2>
     <p><%= pet.description %> </p>
     </div>
 
 </div>
-
+<br>
