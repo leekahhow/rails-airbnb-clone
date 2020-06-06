@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   belongs_to :region
   has_many :bookings
+  has_many :pets
 
   validates :email, uniqueness: true
   validates :name, presence: true
