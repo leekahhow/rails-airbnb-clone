@@ -1,9 +1,5 @@
-<h1>This is a list of ALL the pets you can book</h1>
-<h2>pets#index</h2>
+<h1>This is a list of ALL the pets you can book for the day</h1>
 
-<% @pets.each do |pet| %>
-  <%= link_to pet.name, pet_path(pet), class: 'btn btn-secondary' %>
-<% end %>
-
-
-
+<div id = 'container'>
+  <%= render  @pets %>
+</div>
