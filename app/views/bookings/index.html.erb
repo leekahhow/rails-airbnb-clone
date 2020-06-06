@@ -1,1 +1,9 @@
 <h1> My bookings </h1>
+
+<h1><%= @booking.name %></h1>
+
+<%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+
+<br>
+<br>
+<%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
