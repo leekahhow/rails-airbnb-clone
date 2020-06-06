@@ -1,6 +1,7 @@
-<h1>This is a pet listing</h1>
+<h1><%= @pet.name %></h1>
 
-<%= @pet.name %>
+<%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
 
-
-<%= link_to "Book This Pet", new_booking_path(pet_id: @pet.id)%>
+<br>
+<br>
+<%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
