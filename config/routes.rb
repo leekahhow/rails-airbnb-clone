@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   resources :pets do
     resources :bookings, only: [:new, :create] # :edit, :update
   end
-  resources :bookings, only: [:show, :edit, :update]  do
+  resources :bookings, only: [:edit, :update]  do
     resources :reviews, only: [:new, :create]
   end
 
   resources :users do
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:show, :index]
   end
 
   patch "/bookings/:id/cancel", to: "bookings#cancel"
