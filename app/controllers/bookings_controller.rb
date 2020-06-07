@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
 
+  def index
+    @bookings = Booking.all
+    @pet = Pet.find(Bookings.last.pet_id)
+  end
 
   def new
     # Initiate new Booking Instance
@@ -8,6 +12,7 @@ class BookingsController < ApplicationController
     @booking.pet = @pet
   end
 
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
@@ -15,15 +20,12 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
 
     if @booking.save
-      redirect_to user_bookings_path(@booking.user_id)
+      redirect_to user_booking_path(@booking.user_id, @booking.id)
     else
       render :new
     end
 
   end
-
-  #Bookings have an :user_id, :ped_id, :id, :start_date, :hours, :status,
-
 
   def cancel
     @booking = booking.find(params[:id])
