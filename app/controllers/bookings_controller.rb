@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    @pet = Pet.find(Bookings.last.pet_id)
+    @pet = Pet.find(@bookings.last.pet_id)
   end
 
   def new
