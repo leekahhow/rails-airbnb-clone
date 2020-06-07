@@ -3,9 +3,10 @@
   <div class="card-product">
     <%= cl_image_tag @pet.photo.key%>
     <div class="card-product-infos">
-      <p><%= booking.pet_id %> </p>
+      <h4><%= booking.pet_id %> </h4s>
       <p><%= booking.status %> </p>
       <p><%= booking.hours %> </p>
+      <%= link_to "Reviews", user_bookings_path(current_user.id), class: "btn btn-primary" %>
     </div>
 
   </div>
