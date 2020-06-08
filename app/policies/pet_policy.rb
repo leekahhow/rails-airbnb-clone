@@ -12,4 +12,12 @@ class PetPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def update?
+    record.user == user
+  end
+
+  def create?
+    return true
+  end
+
 end

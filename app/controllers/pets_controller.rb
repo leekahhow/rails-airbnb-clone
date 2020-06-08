@@ -22,22 +22,26 @@ class PetsController < ApplicationController
     else
       render :new
     end
+    authorize @pet
   end
 
   def edit
     @pet = Pet.find(params[:id])
+    authorize @pet
   end
 
   def update
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
     redirect_to pet_path(@pet)
+    authorize @pet
   end
 
   def destroy
     @pet = Pet.find(params[:id])
     @pet.destroy
     redirect_to pets_path, notice: "Pet deleted"
+    authorize @pet
   end
 
   private
