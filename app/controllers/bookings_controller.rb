@@ -28,10 +28,10 @@ class BookingsController < ApplicationController
   end
 
   def cancel
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     @booking.status = "cancelled"
-    @booking.update(status_params)
-    redirect_to bookings_path
+    @booking.save
+    redirect_to user_booking_path(@booking)
   end
 
   private
@@ -40,8 +40,8 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:pet_id, :start_date, :hours)
   end
 
-  def status_params
-    params.require(:booking).permit(:status)
-  end
+  # def status_params
+  #   params.require(:booking).permit(:status)
+  # end
 
 end

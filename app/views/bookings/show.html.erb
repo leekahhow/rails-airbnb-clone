@@ -3,11 +3,18 @@
   <h1><b><%= Pet.find(Booking.last.pet_id).name %></b><h1>
   <h3> has been received </h3>
   <%= cl_image_tag Pet.find(Booking.last.pet_id).photo.key, height: 300, width: 400, crop: :fill %>
-  <h4> Booking is <b><%= Booking.last.status %> </b>. You will know the outcome of your request in 24 HRS</h4>
+  <h4> Booking is <b><%= Booking.last.status %> </b>. </h4>
+  <% if Booking.last.status == 'pending'%>
+    <h4>You will know the outcome of your request in 24 HRS</h4>
+  <% end  %>
+
   <br>
   <h2><b> Details</b></h2>
 
   <h5>Start Date: <%= Booking.last.start_date %></h5>
   <h5>Duration: <%= Booking.last.hours %> HRS</h5>
+
   <%= link_to "View all bookings", user_bookings_path(current_user.id), class: "btn btn-primary" %>
+
+  <%= link_to "Cancel Booking", booking_cancel_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
 </div>

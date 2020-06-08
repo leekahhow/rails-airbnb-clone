@@ -15,6 +15,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:show, :index]
   end
 
-  patch "/bookings/:id/cancel", to: "bookings#cancel"
+  patch "/bookings/:id/cancel", to: "bookings#cancel", as: 'booking_cancel'
 
 end
