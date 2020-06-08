@@ -35,6 +35,22 @@ class BookingsController < ApplicationController
     redirect_to user_booking_path(@booking), notice: "Booking cancelled"
   end
 
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to user_booking_path(@booking)
+  end
+
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = "declined"
+    @booking.save
+    redirect_to user_booking_path(@booking)
+  end
+
+
   private
 
   def booking_params
