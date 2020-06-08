@@ -6,6 +6,7 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
+    @reviews = Review.where(:reviewable_id == :pet_id)
   end
 
   def new
