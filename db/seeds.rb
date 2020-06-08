@@ -11,7 +11,11 @@ require 'open-uri'
 puts "destroying booking then pets"
 Booking.destroy_all
 Pet.destroy_all
-"destroyed bookng followed by pets"
+puts "destroyed booking followed by pets"
+puts "."
+puts "destroying all reviews"
+Review.destroy_all
+puts "destroyed all reviews"
 
 puts "Resetting Database. destroying region then category"
 Region.destroy_all
@@ -105,9 +109,12 @@ pet_3 = Pet.create(
 pet_3.photo.attach(io: file_2, filename: 'newpet_1.png', content_type: 'image/png')
 
 
+puts "Now seeding bookings"
 
-# pet_2.photo.attach(io: file, filename: 'newpet_2.png', content_type: 'image/png')
+# need to figure this out
+puts "seeded bookings"
 
-
+puts "Now seeding reviews"
+# need to figure this out
 
 puts "Done Seeding"
