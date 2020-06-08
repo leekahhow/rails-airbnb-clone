@@ -11,10 +11,13 @@
 <br>
 <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
 <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
+<%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
+
+
 <div>
-<% @reviews.each do |review| %>
-<%= review.description %> <br>
-<%= review.rating %>
+    <% @reviews.each do |review| %>
+    <%= review.description %> <br>
+    <%= review.rating %>
 <% end %>
 </div>
 </div>
