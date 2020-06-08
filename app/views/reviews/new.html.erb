@@ -3,7 +3,7 @@
 
 <h2><b>Create a new review</b></h2>
 
-<%= simple_form_for @review do |f| %>
+<%= simple_form_for [@booking, @review] do |f| %>
   <%= f.input :rating %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file %>
