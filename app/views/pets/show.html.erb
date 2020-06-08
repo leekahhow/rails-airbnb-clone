@@ -5,6 +5,8 @@
 
 <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
 
+<h4><%= @pet.description %></h4>
+
 <br>
 <br>
 <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
