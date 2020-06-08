@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
   belongs_to :user
   belongs_to :category
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings, as: :reviewable
 
   has_one_attached :photo
