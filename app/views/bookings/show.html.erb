@@ -17,4 +17,7 @@
   <%= link_to "View all bookings", user_bookings_path(current_user.id), class: "btn btn-primary" %>
 
   <%= link_to "Cancel Booking", booking_cancel_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
+  <%= link_to "Approve Booking", booking_approve_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
+<%= link_to "Decline Booking", booking_decline_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
+
 </div>
