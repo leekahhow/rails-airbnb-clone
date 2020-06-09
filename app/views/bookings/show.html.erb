@@ -1,23 +1,22 @@
 <div class = "mx-auto" style="width: 500px;">
   <h3>Your request for </h3>
-  <h1><b><%= Pet.find(Booking.last.pet_id).name %></b><h1>
+  <h1><b><%= @booking.pet.name %></b><h1>
   <h3> has been received </h3>
-  <%= cl_image_tag Pet.find(Booking.last.pet_id).photo.key, height: 300, width: 400, crop: :fill %>
-  <h4> Booking is <b><%= Booking.last.status %> </b>. </h4>
-  <% if Booking.last.status == 'pending'%>
+  <%= cl_image_tag @booking.pet.photo.key, height: 300, width: 400, crop: :fill %>
+  <h4> Booking is <b><%= @booking.status %> </b>. </h4>
+  <% if @booking.status == 'pending'%>
     <h4>You will know the outcome of your request in 24 HRS</h4>
   <% end  %>
 
   <br>
   <h2><b> Details</b></h2>
 
-  <h5>Start Date: <%= Booking.last.start_date %></h5>
-  <h5>Duration: <%= Booking.last.hours %> HRS</h5>
+  <h5>Start Date: <%= @booking.start_date %></h5>
+  <h5>Duration: <%= @booking.hours %> HRS</h5>
 
-  <%= link_to "View all bookings", user_bookings_path(current_user.id), class: "btn btn-primary" %>
-
-  <%= link_to "Cancel Booking", booking_cancel_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
-  <%= link_to "Approve Booking", booking_approve_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
-<%= link_to "Decline Booking", booking_decline_path(Booking.last), :method => 'patch', class:"btn btn-primary"%>
+<% if current_user.pets.include?(@booking.pet) = false %>
+  <%= link_to "Cancel Booking", booking_cancel_path(@booking), :method => 'patch', class:"btn btn-primary"%>
+  <%= link_to "Approve Booking", booking_approve_path(@booking), :method => 'patch', class:"btn btn-primary"%>
+<%= link_to "Decline Booking", booking_decline_path(@booking), :method => 'patch', class:"btn btn-primary"%>
 
 </div>
