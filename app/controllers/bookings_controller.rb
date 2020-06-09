@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @user = User.find(params[:user_id])
+    @user = current_user
     @bookings = @user.bookings
     @pet = @user.pets
     #list of user pets ids
@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     users_id = bookings.pluck(:user_id)
     #get the users
     @users_who_booked_user_pets = User.where(id: users_id )
+
   end
 
   def new
@@ -33,7 +34,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
 
     if @booking.save
-      redirect_to user_bookings_path(@booking.user_id, @booking.id)
+      redirect_to bookings_path(@booking.user_id, @booking.id)
     else
       render :new
     end
@@ -45,14 +46,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "cancelled"
     @booking.save
-    redirect_to user_booking_path(@booking), notice: "Booking cancelled"
+    redirect_to bookings_path(@booking), notice: "Booking cancelled"
   end
 
   def approve
     @booking = Booking.find(params[:id])
     @booking.status = "approved"
     @booking.save
-    redirect_to user_booking_path(@booking)
+    redirect_to bookings_path(@booking)
   end
 
 
@@ -60,7 +61,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "declined"
     @booking.save
-    redirect_to user_booking_path(@booking)
+    redirect_to bookings_path(@booking)
   end
 
 

@@ -9,7 +9,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    raise
     @review = Review.new(review_params)
     if params[:user_id]
       @review.reviewable = User.find(params[:user_id])
@@ -18,7 +17,7 @@ class ReviewsController < ApplicationController
     end
 
     if @review.save
-      redirect_to user_bookings_path(current_user.id)
+      redirect_to bookings_path
     else
       render :new
     end
