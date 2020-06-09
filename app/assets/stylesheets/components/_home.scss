@@ -409,17 +409,17 @@ $easing: ease-in-out;
   box-shadow: inset 0 -15px 0 0 $color-gray;
 }
 
-body {
+.home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-html, body {
+.home-container {
   background: #FFE16E;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
