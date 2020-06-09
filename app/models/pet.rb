@@ -2,8 +2,7 @@ class Pet < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :bookings, dependent: :destroy
-  has_many :reviews, through: :bookings, as: :reviewable
-
+  has_many :reviews, through: :bookings, source: :reviews
   has_one_attached :photo
 
   validates :name, presence: true

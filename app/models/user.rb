@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :region
   has_many :bookings
   has_many :pets
+  has_many :reviews, as: :reviewable
 
   validates :email, uniqueness: true
   validates :name, presence: true
