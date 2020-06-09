@@ -1,0 +1,15 @@
+<div class = "mx-auto" style="width: 400px;">
+
+<h1><b>Edit your details here:</b></h1>
+
+<%= simple_form_for @pet do |f| %>
+  <%= f.input :name %>
+  <%= f.association :category %>
+  <%= f.input :description %>
+  <%= f.input :price_per_hour %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Update Pet Details!", class: "btn btn-primary"%>
+<% end %>
+
+</div>
+<br>
