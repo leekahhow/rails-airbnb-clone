@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :name, :phone_number, :region_id])
   end
+
+  def disable_nav
+    @disable_nav = true
+  end
 end
 
 
