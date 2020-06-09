@@ -1,12 +1,14 @@
 <br>
 <div class = "mx-auto" style="width: 400px;">
 
-<h2><b>Create a new review</b></h2>
-
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :description %>
-  <%= f.submit "Speak your mind", class: "btn btn-primary"%>
-<% end %>
+<h2>
+  <b>Create a new review for
+    <% if @review.reviewable.class == User %>
+      <%= @review.reviewable.email %>
+    <% else %>
+      <%= @review.reviewable.pet.name %>
+    <% end %>
+</b></h2>
+<%= render 'form'%>
 </div>
 <br>
