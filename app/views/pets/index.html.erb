@@ -1,17 +1,29 @@
-
 <div class = "mx-auto" style="width: 800px;">
   <h1>Pick your lovely friend</h1>
   <br>
+
+  <!-- Search Bar -->
   <%= form_tag pets_path, method: :get do %>
     <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Seach for a Pet" %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 
-  <%= @pet_search %>
+  <!-- Search Results -->
+  <% if  @pet_search %>
+    <% @pet_search.each do |pet| %>
+      <%= pet.name %>
+    <% end %>
+  <% else %>
+    <%= render  @pets %>
+  <% end %>
+
 </div>
 
 <br>
 
+ <!-- All Pets -->
 <div id = 'container'>
-  <%= render  @pets %>
+  <% unless @pet_search == true || @pet_search == '' %>
+    <%= render  @pets %>
+  <% end %>
 </div>
