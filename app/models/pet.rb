@@ -17,5 +17,7 @@ class Pet < ApplicationRecord
       tsearch: { prefix: true }
     }
 
+  include PgSearch::Model
+    multisearchable against: :name
 
 end
