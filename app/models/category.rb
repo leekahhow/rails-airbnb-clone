@@ -3,9 +3,6 @@ class Category < ApplicationRecord
 
   validates :animal_type, presence: true
 
-  include PgSearch::Model
-  multisearchable against: :animal_type
-
   def to_label
     "#{animal_type}"
   end
