@@ -1,13 +1,38 @@
-
 <div class = "mx-auto" style="width: 800px;">
+  <div id = 'container'>
 
-<h1>Pick your lovely friend</h1>
+    <h1>Pick your lovely friend</h1>
+    <br>
 
+    <p>Search by Region</p>
 
+    <br>
+    <p><b>OR</b></p>
+    <br>
 
-</div>
-<br>
+    <!-- Search Bar -->
+    <p>Search by Name:</p>
+    <%= form_tag pets_path, method: :get do %>
+      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Seach for a Pet by Name" %>
+      <%= submit_tag "Search All Pets", class: "btn btn-primary" %>
+    <% end %>
 
-<div id = 'container'>
-  <%= render  @pets %>
-</div>
+    <br>
+    <!-- Search Results -->
+    <!-- If there is a search && it is NOT empty -->
+    <% if  params[:query].present? && params[:query] != "" && @pet_search.exists? %>
+      <p>All Pets matching the search query of "<b><%= params[:query] %></b>".</p>
+      <% @pet_search.each do |pet| %>
+        <%= pet.name %>
+      <% end %>
+    <!-- If there is NO Matching Records -->
+    <% elsif @pet_search.exists? != true %>
+      <p>Sorry, we couldn't find a pet by that name. Maybe you can checkout one of the pets below:</p>
+      <%= render @pets %>
+    <!-- All Pets -->
+    <% else %>
+      <%= render @pets %>
+    <% end %>
+  </div>
+
+ </div>

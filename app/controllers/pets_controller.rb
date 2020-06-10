@@ -1,7 +1,9 @@
 class PetsController < ApplicationController
+  include PgSearch::Model
 
   def index
     @pets = Pet.all
+    @pet_search = Pet.search_by_name(params[:query])
   end
 
   def show
