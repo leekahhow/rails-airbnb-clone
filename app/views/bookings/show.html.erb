@@ -20,6 +20,10 @@
     <% if current_user.pets.include?(@booking.pet) == true %>
     <%= link_to "Approve Booking", booking_approve_path(@booking), :method => 'patch', class:"btn btn-primary"%>
     <%= link_to "Decline Booking", booking_decline_path(@booking), :method => 'patch', class:"btn btn-primary"%>
+    <!-- I can only leave a review if the booking is approved -->
+    <% if current_user.booking.status == "approved" %>
+    <%= link_to "Leave Review for User", new_user_review_path(@user), class:"btn btn-primary"%>
+
     <% end %>
 
   </div>

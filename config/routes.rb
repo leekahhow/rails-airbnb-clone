@@ -11,8 +11,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
+  resources :bookings, only: [:index]
+
   resources :users do
-    resources :bookings, only: [:show, :index]
+    resources :reviews, only:  [:new, :create]
   end
 
   patch "/bookings/:id/cancel", to: "bookings#cancel", as: 'booking_cancel'

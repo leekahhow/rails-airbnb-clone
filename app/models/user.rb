@@ -6,8 +6,10 @@ class User < ApplicationRecord
 
   belongs_to :region
   has_many :bookings
+  # has_many :reviews, through: :bookings, source: :reviews
+
   has_many :pets
-  has_many :reviews, as: :reviewable
+  has_many :reviews, as: :reviewable, source: :reviews
 
   validates :email, uniqueness: true
   validates :name, presence: true
