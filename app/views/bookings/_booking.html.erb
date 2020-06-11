@@ -3,7 +3,7 @@
   <div class="card-product">
     <%= cl_image_tag booking.pet.photo.key%>
     <div class="card-product-infos">
-      <h4><%= booking.pet_id %> </h4s>
+      <h4><%= booking.pet.name %> </h4s>
       <p><%= booking.status %> </p>
       <p><%= booking.hours %> </p>
       <%= link_to "Create review", new_booking_review_path(booking.id), class: "btn btn-primary" %>
