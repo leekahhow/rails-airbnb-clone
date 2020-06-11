@@ -177,7 +177,7 @@ pet_8 = Pet.create(
   name: "Lucas",
   description: "Want something furry with twice the number of legs as dogs or cats? I swear I saw him eat a tiny sparrow the other day.",
   price_per_hour: 100,
-  category: other,
+  category: others,
   user: User.all[1]
 )
 
@@ -187,7 +187,7 @@ pet_9 = Pet.create(
   name: "Kentucky",
   description: "Kentucky apparently became famous for killing a women who tried to steal eggs from his wife. Protective, loyal, he is the ideal man.",
   price_per_hour: 100,
-  category: other,
+  category: others,
   user: User.all[1]
 )
 
@@ -292,15 +292,6 @@ pet_18 = Pet.create(
 
 pet_18.photo.attach(io: file_17, filename: 'sleepy.png', content_type: 'image/png')
 
-pet_19 = Pet.create(
-  name: "Handsome Lad",
-  description: "He is going to grow up to be a fine boi. Be part of his childhood.",
-  price_per_hour: 100,
-  category: dog,
-  user: User.all[1]
-)
-
-pet_19.photo.attach(io: file_18, filename: 'sleepy.png', content_type: 'image/png')
 
 
 
