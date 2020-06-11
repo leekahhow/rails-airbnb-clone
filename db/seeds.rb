@@ -315,6 +315,9 @@ puts "booking created"
 puts "now creating reviews"
 first_Review = Review.create!(reviewable: first_booking, rating: 5, description: "Punctual, polite, pretty much perfect.")
 
+puts "now creating reviews"
+first_Review_user = Review.create!(reviewable: User.first, rating: 5, description: "Great glasses")
+
 puts "reviews created"
 
 
