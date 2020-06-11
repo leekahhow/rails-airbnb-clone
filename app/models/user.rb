@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :pets
   has_many :reviews, as: :reviewable, source: :reviews
+  has_one_attached :photo
 
   validates :email, uniqueness: true
   validates :name, presence: true
