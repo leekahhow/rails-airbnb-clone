@@ -2,6 +2,6 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @pet = @user.pets
-    @reviews = current_user.reviews
+    @reviews = Review.all
   end
 end
