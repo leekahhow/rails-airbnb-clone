@@ -9,17 +9,14 @@
     <% @pet.each do |pet|%>
     <li>Name : <%= pet.name %><br>
       Price per hour : <%= pet.price_per_hour %></li>
-      <%end%>
+      <% end %>
       <br>
       <p><b>Reviews:</b></p>
-      <% @reviews.each do |review|%>
-<<<<<<< HEAD
-          <li>Rate : <%= review.rating %> <br>
-=======
+      <% @reviews.each do |review| %>
       <li>Rate : <%= review.rating %> <br>
->>>>>>> 0d833290d27d87133461d9a35adbfc4573ba56e3
         Description : <%= review.description %></li>
-        <%end%>
+        <% end %>
+
 
 
 
