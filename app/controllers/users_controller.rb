@@ -3,4 +3,5 @@ class UsersController < ApplicationController
     @user = current_user
     @pet = @user.pets
     @reviews = Review.where(:reviewable => @user)
+  end
 end
