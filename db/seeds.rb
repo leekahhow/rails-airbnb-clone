@@ -137,7 +137,7 @@ pet_4 = Pet.create(
   name: "Charizard",
   description: "Fancy a bearded dragon as a pet? Scaly, friendly, he is as close to a pokemon as you can be.",
   price_per_hour: 50,
-  category: cat,
+  category: lizard,
   user: User.all[1]
 )
 
@@ -147,7 +147,7 @@ pet_5 = Pet.create(
   name: "Tomato Lord",
   description: "As big as a dog, as red as tomato5. He will brighten up your day and make you believe in love again.",
   price_per_hour: 30,
-  category: cat,
+  category: lizard,
   user: User.all[1]
 )
 
@@ -157,7 +157,7 @@ pet_6 = Pet.create(
   name: "Golden Girl",
   description: "If you told me she were Ariel, I would believe. She is nothing less than a Disney princess. Tank comes included.",
   price_per_hour: 100,
-  category: cat,
+  category: fish,
   user: User.all[1]
 )
 
@@ -167,7 +167,7 @@ pet_7 = Pet.create(
   name: "Bugs Bunny",
   description: "Less annoying than the one in Looney Tunes. Abandoned as a child, sucker for hugs.",
   price_per_hour: 100,
-  category: cat,
+  category: rabbit,
   user: User.all[1]
 )
 
@@ -177,7 +177,7 @@ pet_8 = Pet.create(
   name: "Lucas",
   description: "Want something furry with twice the number of legs as dogs or cats? I swear I saw him eat a tiny sparrow the other day.",
   price_per_hour: 100,
-  category: cat,
+  category: other,
   user: User.all[1]
 )
 
@@ -187,7 +187,7 @@ pet_9 = Pet.create(
   name: "Kentucky",
   description: "Kentucky apparently became famous for killing a women who tried to steal eggs from his wife. Protective, loyal, he is the ideal man.",
   price_per_hour: 100,
-  category: cat,
+  category: other,
   user: User.all[1]
 )
 
@@ -197,7 +197,7 @@ pet_10 = Pet.create(
   name: "Honey Bunny",
   description: "No money, no honey. He eats only organic carrots and not random trash from Trader Joe's. Atas, proud and fat.",
   price_per_hour: 100,
-  category: cat,
+  category: rabbit,
   user: User.all[1]
 )
 
@@ -205,10 +205,10 @@ pet_10.photo.attach(io: file_9, filename: 'honeybunny.png', content_type: 'image
 
 
 pet_11 = Pet.create(
-  name: "Honey Bunny",
-  description: "No money, no honey. He eats only organic carrots and not random trash from Trader Joe's. Atas, proud and fat.",
+  name: "Death Star",
+  description: "As sweet as honey stars",
   price_per_hour: 100,
-  category: rabbit,
+  category: dog,
   user: User.all[1]
 )
 
