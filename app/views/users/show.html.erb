@@ -6,7 +6,7 @@
 <p><b>Region: </b><%= current_user.region.name %></p>
 <p><b>Phone Number: </b><%= current_user.phone_number %></p>
 <p><b>Pets:</b><p>
-<% @pets.each do |pet|%>
+<% @pet.each do |pet|%>
 <li>Name : <%= pet.name %><br>
 Price per hour : <%= pet.price_per_hour %></li>
   <%end%>
