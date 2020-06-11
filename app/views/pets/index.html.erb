@@ -11,15 +11,28 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
+
+    <!-- Search Radio-->
+    <%= form_with(url: "/", method: "get") do %>
+      <% @categories.each do |category| %>
+        <%= label_tag("animal_type_#{category.animal_type}".to_sym) do %>
+          <%= category.animal_type %>
+          <%= radio_button_tag(:animal_type, category.animal_type) %>
+          <%= image_tag("https://image.flaticon.com/icons/svg/3043/3043813.svg")  %>
+        <% end %>
+      <% end %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
     <br>
 
     <!-- Results from Search Bar-->
-    <% if  params[:query].present? && params[:query] != "" %>
+
+    <% if  @pets %>
       <%= render @pets %>
     <% else %>
-      <%= render @pets.all %>
+      <%= render @pets.all%>
     <% end %>
-
   </div>
 
  </div>
