@@ -8,11 +8,14 @@
 
   <br>
   <br>
-  <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
-  <% if current_user.pets.include?(@pet) == true %>
-  <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
-  <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
+
+  <% if @booking[0].status != "approved" %>
+    <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
   <% end %>
-  <%= link_to "Back", :back, class: "btn btn-outline-dark"%>
+  <% if current_user.pets.include?(@pet) == true %>
+    <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
+    <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
+  <% end %>
+    <%= link_to "Back", :back, class: "btn btn-outline-dark"%>
   <%= render @pet.reviews %>
 </div>
