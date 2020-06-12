@@ -1,0 +1,11 @@
+    <%= form_with(url: "/pets", method: "get", local: true) do %>
+      <% @categories.each do |category| %>
+        <%= label_tag("animal_type_#{category.animal_type}".to_sym) do %>
+          <%= radio_button_tag :animal_type, category.animal_type, "", class: "radio" %>
+          <%= image_tag("https://image.flaticon.com/icons/svg/3043/3043813.svg", class: "picture")  %>
+
+          <p class="text"><%= category.animal_type %></p>
+          <% end %>
+        <% end %>
+        <%= submit_tag("Search") %>
+<% end %>

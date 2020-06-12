@@ -5,17 +5,22 @@
     <br>
 
     <!-- Search Bar-->
-    <%= form_tag pets_path, method: :get do %>
+<!--    <%= form_tag pets_path, method: :get do %>
       <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
       <br>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
+    <br> -->
 
-    <br>
+    <%= render 'shared/filter_category'%>
+
+
 
     <!-- Results from Search Bar-->
     <% if  params[:query].present? && params[:query] != "" %>
+      <h3> Results for <%= params[:query] %></h3>
       <%= render @pets %>
+
     <% else %>
       <%= render @pets.all %>
     <% end %>
