@@ -12,6 +12,12 @@
       <% end %>
       <br>
       <p><b>Reviews:</b></p>
+      <!-- name of reviewer -->
+
+<% @users_who_left_reviews.each do |user| %>
+  <p><%= user.name %></p>
+        <% end %>
+
       <% @reviews.each do |review| %>
       <li>Rate : <%= review.rating %> <br>
         Description : <%= review.description %></li>
