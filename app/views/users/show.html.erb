@@ -1,6 +1,8 @@
 <br>
 <div class = "mx-auto" style="width: 500px;">
   <h1>Profile </h1>
+  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
+
   <p><b>Name: </b><%= current_user.name %></p>
   <p><b>Email Address: </b><%= current_user.email %></p>
   <p><b>Region: </b><%= current_user.region.name %></p>
@@ -12,6 +14,12 @@
       <% end %>
       <br>
       <p><b>Reviews:</b></p>
+      <!-- name of reviewer -->
+
+<% @users_who_left_reviews.each do |user| %>
+  <p><%= user.name %></p>
+        <% end %>
+
       <% @reviews.each do |review| %>
       <li>Rate : <%= review.rating %> <br>
         Description : <%= review.description %></li>

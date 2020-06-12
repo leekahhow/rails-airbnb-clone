@@ -8,8 +8,9 @@
 
   <br>
   <br>
-
-  <% if @booking[0].status != "approved" %>
+  <% if @booking != nil && (@booking.status == "approved" || @booking.status == "pending") %>
+    <p> You already booked this pet! </p>
+  <% else %>
     <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
   <% end %>
   <% if current_user.pets.include?(@pet) == true %>
