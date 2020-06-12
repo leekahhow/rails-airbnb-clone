@@ -14,12 +14,13 @@ class PetsController < ApplicationController
     else
       @pets = Pet.all
     end
-  end
+end
 
   def show
+    @user = current_user
     @pet = Pet.find(params[:id])
-    @reviews = Review.where(:reviewable_id == :pet_id)
-    @booking = Booking.where(:reviewable_id == :user_id)
+    @reviews = Review.where(:reviewable => @pet)
+    @booking = Booking.find_by pet_id: params[:id]
   end
 
   def new
