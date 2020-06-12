@@ -1,30 +1,46 @@
 <br>
 <div class = "mx-auto" style="width: 500px;">
+  <div class="card" style="width: 500px;">
+      <div class="card-body">
+<br>
   <h1>Profile </h1>
-  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
-
+  <br>
+  <%= cl_image_tag current_user.photo.key, height: 300, width: 460, crop: :fill%>
   <p><b>Name: </b><%= current_user.name %></p>
   <p><b>Email Address: </b><%= current_user.email %></p>
   <p><b>Region: </b><%= current_user.region.name %></p>
   <p><b>Phone Number: </b><%= current_user.phone_number %></p>
+     <hr/>
+<br>
   <p><b>Pets:</b><p>
-    <% @pet.each do |pet|%>
-    <li>Name : <%= pet.name %><br>
-      Price per hour : <%= pet.price_per_hour %></li>
+  <div class="cards">
+    <div class="row">
+      <% @pet.each do |pet| %>
+          <div class="col-4">
+            <div class ="card">
+                  <div class="card-body">
+              <%= cl_image_tag pet.photo.key, height: 100, width: 100, crop: :fill%>
+                <h5 class="card-title"><%= link_to pet.name, pet_path(pet) %> </h5>
+                <p class="card-text"><%= pet.description %> </p>
+              </div>
+            </div>
+          </div>
       <% end %>
-      <br>
+    </div>
+    <br>
+  <hr/>
       <p><b>Reviews:</b></p>
       <!-- name of reviewer -->
 
-<% @users_who_left_reviews.each do |user| %>
-  <p><%= user.name %></p>
-        <% end %>
+      <% @users_who_left_reviews.each do |user| %>
+      <p><%= user.name %></p>
+      <% end %>
 
       <% @reviews.each do |review| %>
       <li>Rate : <%= review.rating %> <br>
         Description : <%= review.description %></li>
         <% end %>
 
+</div>
 
-
-
+</div>
