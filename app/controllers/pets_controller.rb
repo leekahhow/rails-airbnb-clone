@@ -3,19 +3,28 @@ class PetsController < ApplicationController
 
   def index
     @categories = Category.all
-    if params[:query].present?
-      sql_query = " \ categories.animal_type ILIKE :query \ "
-      @pets = Pet.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+
+    # if params[:query].present?
+    #   binding.pry
+    #   sql_query = " \ categories.animal_type ILIKE :query \ "
+    #   @pets = Pet.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+
+    if params[:animal_type] #string
+      @pets = Pet.all
+      @category = Category.find_by_animal_type(params[:animal_type])
+      @pets = Pet.where(category_id: @category.id)
     else
       @pets = Pet.all
-        end
+
+    end
+  end
+
+
 
     # if params[:animal_type].present?
     #   @pets = Pet.joins(:category).where(title: params[:animal_type])
     #   else @pets = Pet.all
     # end
-
-  end
 
   def show
     @pet = Pet.find(params[:id])
@@ -57,7 +66,8 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :description, :price_per_hour, :category_id, :photo)
+    # params.require(:pet).permit(:name, :description, :price_per_hour, :category_id, :photo)
+    params.permit!
   end
 
 end

@@ -4,22 +4,23 @@
     <h1>Pick your lovely friend</h1>
     <br>
 
+
     <!-- Search Bar-->
-    <%= form_tag pets_path, method: :get do %>
+<!--     <%= form_tag pets_path, method: :get do %>
       <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
       <br>
       <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+    <% end %> -->
 
 
     <!-- Search Radio-->
-    <%= form_with(url: "/", method: "get") do %>
+    <%= form_with(url: "/pets", method: "get") do %>
       <% @categories.each do |category| %>
-        <%= label_tag("animal_type_#{category.animal_type}".to_sym) do %>
+      <!--  <%= label_tag("animal_type_#{category.animal_type}".to_sym) do %> -->
           <%= category.animal_type %>
           <%= radio_button_tag(:animal_type, category.animal_type) %>
           <%= image_tag("https://image.flaticon.com/icons/svg/3043/3043813.svg")  %>
-        <% end %>
+       <!-- <% end %> -->
       <% end %>
       <%= submit_tag("Search") %>
     <% end %>
@@ -27,12 +28,9 @@
     <br>
 
     <!-- Results from Search Bar-->
-
-    <% if  @pets %>
       <%= render @pets %>
-    <% else %>
-      <%= render @pets.all%>
-    <% end %>
+
+
   </div>
 
  </div>
