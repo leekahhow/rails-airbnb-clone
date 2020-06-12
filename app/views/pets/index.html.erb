@@ -1,7 +1,7 @@
 <div class = "mx-auto" style="width: 800px;">
   <div id = 'container'>
 
-    <h1>Pick your lovely friend</h1>
+    <h1 class="text-center mt-4">Pick your lovely friend</h1>
     <br>
 
     <!-- Search Bar-->
@@ -13,14 +13,12 @@
     <br> -->
 
     <%= render 'shared/filter_category'%>
-
-
+    <br>
 
     <!-- Results from Search Bar-->
     <% if  params[:query].present? && params[:query] != "" %>
       <h3> Results for <%= params[:query] %></h3>
       <%= render @pets %>
-
     <% else %>
       <%= render @pets.all %>
     <% end %>
