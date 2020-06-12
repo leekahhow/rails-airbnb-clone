@@ -1,25 +1,64 @@
 <div class = "mx-auto" style="width: 800px;">
   <div id = 'container'>
-
-    <h1>Pick your lovely friend</h1>
+    <br>
+      <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
+    <br>
+      <div class="text-center"'>
+    <h1>Pick your lovely <b>friend</b></h1>
+  </div>
     <br>
 
     <!-- Search Bar-->
     <%= form_tag pets_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
-      <br>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
+    <br>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
     <br>
 
     <!-- Results from Search Bar-->
     <% if  params[:query].present? && params[:query] != "" %>
-      <%= render @pets %>
+<div class = "mx-auto" style="width: 800px;">
+  <div class="cards">
+    <div class="row">
+      <% @pets.each do |pet| %>
+          <div class="col-4">
+            <div class="card-product">
+              <%= cl_image_tag pet.photo.key%>
+              <div class="card-product-infos">
+                <h2><%= link_to pet.name, pet_path(pet) %> </h2>
+                <p><%= pet.description %> </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+     <br>
+   </div>
+</div>
+
     <% else %>
-      <%= render @pets.all %>
-    <% end %>
+
+<div class = "mx-auto" style="width: 800px;">
+  <div class="cards">
+    <div class="row">
+      <% @pets.each do |pet| %>
+          <div class="col-4">
+            <div class="card-product">
+              <%= cl_image_tag pet.photo.key%>
+              <div class="card-product-infos">
+                <h2><%= link_to pet.name, pet_path(pet) %> </h2>
+                <p><%= pet.description %> </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+     <br>
+   </div>
+</div>
 
   </div>
 
- </div>
+</div>
