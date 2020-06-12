@@ -19,10 +19,45 @@
 
     <!-- Results from Search Bar-->
     <% if  params[:query].present? && params[:query] != "" %>
-    <%= render @pets %>
+<div class = "mx-auto" style="width: 800px;">
+  <div class="cards">
+    <div class="row">
+      <% @pets.each do |pet| %>
+          <div class="col-4">
+            <div class="card-product">
+              <%= cl_image_tag pet.photo.key%>
+              <div class="card-product-infos">
+                <h2><%= link_to pet.name, pet_path(pet) %> </h2>
+                <p><%= pet.description %> </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+     <br>
+   </div>
+</div>
+
     <% else %>
-    <%= render @pets.all %>
-    <% end %>
+
+<div class = "mx-auto" style="width: 800px;">
+  <div class="cards">
+    <div class="row">
+      <% @pets.each do |pet| %>
+          <div class="col-4">
+            <div class="card-product">
+              <%= cl_image_tag pet.photo.key%>
+              <div class="card-product-infos">
+                <h2><%= link_to pet.name, pet_path(pet) %> </h2>
+                <p><%= pet.description %> </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+     <br>
+   </div>
+</div>
 
   </div>
 

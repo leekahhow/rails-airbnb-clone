@@ -6,6 +6,7 @@
   <h1>Profile </h1>
   <br>
   <%= cl_image_tag current_user.photo.key, height: 300, width: 460, crop: :fill%>
+
   <p><b>Name: </b><%= current_user.name %></p>
   <p><b>Email Address: </b><%= current_user.email %></p>
   <p><b>Region: </b><%= current_user.region.name %></p>
