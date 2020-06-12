@@ -47,14 +47,24 @@ others = Category.create(animal_type: "Others")
 
 
 puts "Now seeding users"
-User.create(
+
+user_11 = open('./db/images/sam.png')
+user_22 = open('./db/images/jn.png')
+user_33 = open('./db/images/jh.png')
+user_44 = open('./db/images/kh.png')
+
+
+user_1 = User.create(
   name: "Sam",
   email: "sam@petpet.us",
   password: "123456",
   region: west,
   phone_number: "97333299"
 )
-User.create(
+
+user_1.photo.attach(io: user_11, filename: 'sam.png', content_type: 'image/png')
+
+user_2 = User.create(
   name: "Jon",
   email: "jon@petpet.us",
   password: "123456",
@@ -62,7 +72,9 @@ User.create(
   phone_number: "97533299"
 )
 
-User.create(
+user_2.photo.attach(io: user_22, filename: 'jn.png', content_type: 'image/png')
+
+user_3 = User.create(
   name: "Joohee",
   email: "joohee@petpet.us",
   password: "123456",
@@ -70,13 +82,17 @@ User.create(
   phone_number: "97533290"
 )
 
-User.create(
+user_3.photo.attach(io: user_33, filename: 'jh.png', content_type: 'image/png')
+
+user_4 = User.create(
   name: "Kahhow",
   email: "kahhow@petpet.us",
   password: "123456",
   region: north,
   phone_number: "97533291"
 )
+
+user_4.photo.attach(io: user_44, filename: 'kh.png', content_type: 'image/png')
 
 
 puts "Now Seeding Pets"

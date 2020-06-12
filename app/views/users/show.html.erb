@@ -1,7 +1,7 @@
 <br>
 <div class = "mx-auto" style="width: 500px;">
   <h1>Profile </h1>
-  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
+  <%= cl_image_tag current_user.photo.key, height: 300, width: 400%>
 
   <p><b>Name: </b><%= current_user.name %></p>
   <p><b>Email Address: </b><%= current_user.email %></p>
