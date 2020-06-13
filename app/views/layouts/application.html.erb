@@ -15,17 +15,8 @@
   <%= render 'shared/navbar' unless @disable_nav %>
   <%= yield %>
   <%= render 'shared/flashes' %>
-<!--
-  <% if user_signed_in? %> 
-    <%= current_user.name %> 
-    <p> User Id: <%= current_user.id %> </p> 
-    <%= link_to "View all Pets", pets_path%>
-   <% end %>
- -->
-</body>
-
-<footer>
   <%= render 'shared/footer'%>
-</footer>
+
+</body>
 
 </html>

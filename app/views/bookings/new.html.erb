@@ -1,16 +1,16 @@
 <br>
 <div class = "mx-auto" style="width: 400px;">
 
-<h3><b>Make a booking</b></h3>
+  <h3><b>Make a booking</b></h3>
   <%= cl_image_tag @pet.photo.key, height: 200, width: 400, crop: :fill %>
-<h1>Take <%= @pet.name %> Home!</h1>
+  <h1>Take <%= @pet.name %> Home!</h1>
 
-<%= simple_form_for ([@pet, @booking])  do |f| %>
+  <%= simple_form_for ([@pet, @booking])  do |f| %>
   <%= f.input :start_date, as: :date, html5:true %>
   <%= f.input :hours %>
   <%= f.submit "Make a Booking", class: "btn btn-primary btn-block"%>
-<% end %>
-              <%= link_to "Back to all pets", pets_path, class: "btn btn-light btn-block"%>
+  <% end %>
+  <%= link_to "Back to all pets", pets_path, class: "btn btn-light btn-block"%>
 
 </div>
 <br>
