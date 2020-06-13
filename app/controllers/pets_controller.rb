@@ -7,7 +7,6 @@ class PetsController < ApplicationController
     # else
     #   @pets = Pet.all
     # end
-
     if params[:query].present?
       sql_query = " \ categories.animal_type ILIKE :query \ "
       @pets = Pet.joins(:category).where(sql_query, query: "%#{params[:query]}%")
@@ -21,6 +20,8 @@ end
     @pet = Pet.find(params[:id])
     @reviews = Review.where(:reviewable => @pet)
     @booking = Booking.find_by pet_id: params[:id]
+    @owner = User.find(@pet.user_id)
+    @owner_photo = @owner.photo.key
   end
 
   def new
