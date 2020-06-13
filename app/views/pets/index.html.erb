@@ -6,14 +6,18 @@
       <h1>Pick your lovely <b>friend</b></h1>
     </div>
     <br>
-    
+
     <!--Filter Category Icons-->
     <%= render 'shared/filter_category'%>
-    
+
     <br>
 
     <!-- Results from Search Bar-->
-    <%= render @pets %>
-    
+    <div class="cards">
+       <div class="row">
+         <%= render @pets %>
+       </div>
+    </div>
+
   </div>
 </div>
