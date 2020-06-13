@@ -45,6 +45,28 @@ fish = Category.create(animal_type: "Fish")
 others = Category.create(animal_type: "Others")
 
 
+puts "Now seeding photos to categories"
+cat_photo = open('./db/images/cat.png')
+cat.photo.attach(io: cat_photo, filename: 'cat.png', content_type: 'image/png')
+
+dog_photo = open('./db/images/dog.png')
+dog.photo.attach(io: dog_photo, filename: 'dog.png', content_type: 'image/png')
+
+rabbit_photo = open('./db/images/rabbit.png')
+rabbit.photo.attach(io: rabbit_photo, filename: 'rabbit.png', content_type: 'image/png')
+
+lizard_photo = open('./db/images/lizard.png')
+lizard.photo.attach(io: lizard_photo, filename: 'lizard.png', content_type: 'image/png')
+
+fish_photo = open('./db/images/fish.png')
+fish.photo.attach(io: fish_photo, filename: 'fish.png', content_type: 'image/png')
+
+others_photo = open('./db/images/others.png')
+others.photo.attach(io: others_photo, filename: 'others.png', content_type: 'image/png')
+
+
+puts "Done attached photos to categories"
+
 
 puts "Now seeding users"
 
@@ -154,7 +176,7 @@ pet_4 = Pet.create(
   description: "Fancy a bearded dragon as a pet? Scaly, friendly, he is as close to a pokemon as you can be.",
   price_per_hour: 50,
   category: lizard,
-  user: User.all[1]
+  user: User.first
 )
 
 pet_4.photo.attach(io: file_3, filename: 'charizard.png', content_type: 'image/png')
@@ -172,7 +194,7 @@ pet_5.photo.attach(io: file_4, filename: 'tomato_lord.png', content_type: 'image
 pet_6 = Pet.create(
   name: "Golden Girl",
   description: "If you told me she were Ariel, I would believe. She is nothing less than a Disney princess. Tank comes included.",
-  price_per_hour: 100,
+  price_per_hour: 5,
   category: fish,
   user: User.all[1]
 )
@@ -182,9 +204,9 @@ pet_6.photo.attach(io: file_5, filename: 'tomato_lord.png', content_type: 'image
 pet_7 = Pet.create(
   name: "Bugs Bunny",
   description: "Less annoying than the one in Looney Tunes. Abandoned as a child, sucker for hugs.",
-  price_per_hour: 100,
+  price_per_hour: 7,
   category: rabbit,
-  user: User.all[1]
+  user: User.first
 )
 
 pet_7.photo.attach(io: file_6, filename: 'bugs_bunny.png', content_type: 'image/png')
@@ -192,7 +214,7 @@ pet_7.photo.attach(io: file_6, filename: 'bugs_bunny.png', content_type: 'image/
 pet_8 = Pet.create(
   name: "Lucas",
   description: "Want something furry with twice the number of legs as dogs or cats? I swear I saw him eat a tiny sparrow the other day.",
-  price_per_hour: 100,
+  price_per_hour: 15,
   category: others,
   user: User.all[1]
 )
@@ -202,7 +224,7 @@ pet_8.photo.attach(io: file_7, filename: 'lucas.png', content_type: 'image/png')
 pet_9 = Pet.create(
   name: "Kentucky",
   description: "Kentucky apparently became famous for killing a women who tried to steal eggs from his wife. Protective, loyal, he is the ideal man.",
-  price_per_hour: 100,
+  price_per_hour: 13,
   category: others,
   user: User.all[1]
 )
@@ -212,7 +234,7 @@ pet_9.photo.attach(io: file_8, filename: 'kentucky.png', content_type: 'image/pn
 pet_10 = Pet.create(
   name: "Honey Bunny",
   description: "No money, no honey. He eats only organic carrots and not random trash from Trader Joe's. Atas, proud and fat.",
-  price_per_hour: 100,
+  price_per_hour: 8,
   category: rabbit,
   user: User.all[1]
 )
@@ -223,7 +245,7 @@ pet_10.photo.attach(io: file_9, filename: 'honeybunny.png', content_type: 'image
 pet_11 = Pet.create(
   name: "Death Star",
   description: "As sweet as honey stars",
-  price_per_hour: 100,
+  price_per_hour: 35,
   category: dog,
   user: User.all[1]
 )
@@ -233,7 +255,7 @@ pet_11.photo.attach(io: file_10, filename: 'honeybunny.png', content_type: 'imag
 pet_12 = Pet.create(
   name: "Mario",
   description: "He loves pizza and pasta. Also howls to the Italian flag",
-  price_per_hour: 100,
+  price_per_hour: 21,
   category: dog,
   user: User.all[1]
 )
@@ -244,7 +266,7 @@ pet_12.photo.attach(io: file_11, filename: 'potato.png', content_type: 'image/pn
 pet_13 = Pet.create(
   name: "Potato",
   description: "Loves the couch and always barks at you if you have fries.",
-  price_per_hour: 100,
+  price_per_hour: 11,
   category: dog,
   user: User.all[1]
 )
@@ -255,9 +277,9 @@ pet_13.photo.attach(io: file_12, filename: 'potato.png', content_type: 'image/pn
 pet_14 = Pet.create(
   name: "Jordan",
   description: "Chases a basketball and nothing else. Clearly has NBA dreams.",
-  price_per_hour: 100,
+  price_per_hour: 12,
   category: dog,
-  user: User.all[1]
+  user: User.first
 )
 
 pet_14.photo.attach(io: file_13, filename: 'jordan.png', content_type: 'image/png')
@@ -267,7 +289,7 @@ pet_14.photo.attach(io: file_13, filename: 'jordan.png', content_type: 'image/pn
 pet_15 = Pet.create(
   name: "Jenny",
   description: "Previously under the care of a policewomen who died in service, Jenny is tender and gives you space even as you work from home.",
-  price_per_hour: 100,
+  price_per_hour: 13,
   category: dog,
   user: User.all[1]
 )
@@ -279,7 +301,7 @@ pet_15.photo.attach(io: file_14, filename: 'jenny.png', content_type: 'image/png
 pet_16 = Pet.create(
   name: "Jack the Rapper",
   description: "Nothing gets him like good o' school hiphop beats. He actually dances to the breaks of the beats.",
-  price_per_hour: 100,
+  price_per_hour: 37,
   category: dog,
   user: User.all[1]
 )
@@ -290,9 +312,9 @@ pet_16.photo.attach(io: file_15, filename: 'jack.png', content_type: 'image/png'
 pet_17 = Pet.create(
   name: "Tommy",
   description: "He chases the wind and loves car rides. The latter is the best bribe.",
-  price_per_hour: 100,
+  price_per_hour: 22,
   category: dog,
-  user: User.all[1]
+  user: User.last
 )
 
 pet_17.photo.attach(io: file_16, filename: 'tommy.png', content_type: 'image/png')
@@ -301,9 +323,9 @@ pet_17.photo.attach(io: file_16, filename: 'tommy.png', content_type: 'image/png
 pet_18 = Pet.create(
   name: "Sleepy",
   description: "Sleepy lovely pup who can nap anytime, anywhere. Clearly a soldier in his past life.",
-  price_per_hour: 100,
+  price_per_hour: 34,
   category: dog,
-  user: User.all[1]
+  user: User.first
 )
 
 pet_18.photo.attach(io: file_17, filename: 'sleepy.png', content_type: 'image/png')
