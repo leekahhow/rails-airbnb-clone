@@ -1,22 +1,41 @@
 <br>
 <div class = "mx-auto" style="width: 800px;">
-  <h1><%= @pet.name %></h1>
 
-  <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
 
-  <h4><%= @pet.description %></h4>
+  <div class="container">
+    <div class="fancy_card">
+      <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card_text">
+        <div class="tags">
+          <%= @pet.category.animal_type %>
+        </div>
+        <h2 class="title"> <%= @pet.name %></h2>
+        <div class="summary">
+          <%= @pet.description %>
+          <div class = "py-3">
+            <% if @booking != nil && (@booking.status == "approved" || @booking.status == "pending") %>
+            <p> You already booked this pet! </p>
+            <% else %>
+            <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary btn-block"%>
+            <% end %>
+            <% if current_user.pets.include?(@pet) == true %>
+            <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
+            <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
+            <% end %>
+            <%= link_to "Back", :back, class: "btn btn-outline-dark"%>
+            <%= render @pet.reviews %>
+          </div>
 
-  <br>
-  <br>
-  <% if @booking != nil && (@booking.status == "approved" || @booking.status == "pending") %>
-    <p> You already booked this pet! </p>
-  <% else %>
-    <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary"%>
-  <% end %>
-  <% if current_user.pets.include?(@pet) == true %>
-    <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
-    <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
-  <% end %>
-    <%= link_to "Back", :back, class: "btn btn-outline-dark"%>
-  <%= render @pet.reviews %>
-</div>
+          </div>
+        </div>
+
+        <div class="card_footer">
+          <a href="https://nestedsoftware.com">
+            <img class="author_image" src="https://thepracticaldev.s3.amazonaws.com/i/62j2i9zf91agi13gsl6p.jpg" alt="Nested Software">
+          </a>
+          <div class="reading_time">
+            $ <%= @pet.price_per_hour %>/hour
+          </div>
+        </div>
+      </div>
+    </div>
