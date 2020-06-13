@@ -1,7 +1,5 @@
 <br>
 <div class = "mx-auto" style="width: 800px;">
-
-
   <div class="container">
     <div class="fancy_card">
       <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fill %>
@@ -14,36 +12,40 @@
           <%= @pet.description %>
           <div class = "py-3">
             <% if @booking != nil && (@booking.status == "approved" || @booking.status == "pending") %>
-          <div class = "py-2">
-            <button type="button" class="btn btn-secondary btn-block" disabled>Already booked(: </button>
-          </div>
+            <div class = "py-2">
+              <button type="button" class="btn btn-secondary btn-block" disabled>Already booked(: </button>
+            </div>
             <% elsif current_user.pets.include?(@pet) == true%>
-             <div class = "py-2">
-            <button type="button" class="btn btn-secondary btn-block" disabled>This is your pet(: </button>
-          </div>
+            <div class = "py-2">
+              <button type="button" class="btn btn-secondary btn-block" disabled>This is your pet(: </button>
+            </div>
             <% else %>
-                      <div class = "py-2">
-            <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary btn-block"%>
-          </div>
+            <div class = "py-2">
+              <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary btn-block"%>
+            </div>
             <% end %>
             <% if current_user.pets.include?(@pet) == true %>
-            <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
-            <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
+
+            <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-warning btn-block"%>
+            <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-danger btn-block"%>
             <% end %>
-            <%= link_to "Back", :back, class: "btn btn-light btn-block"%>
+            <div class = "py-2">
+
+              <%= link_to "Back", :back, class: "btn btn-light btn-block"%>
+            </div>
             <%= render @pet.reviews %>
           </div>
 
-          </div>
         </div>
+      </div>
 
-        <div class="card_footer">
-          <a href="https://nestedsoftware.com">
-            <img class="author_image" src="https://thepracticaldev.s3.amazonaws.com/i/62j2i9zf91agi13gsl6p.jpg" alt="Nested Software">
-          </a>
-          <div class="reading_time">
-            $ <%= @pet.price_per_hour %>/hour
-          </div>
+      <div class="card_footer">
+        <a href="https://nestedsoftware.com">
+          <img class="author_image" src="https://thepracticaldev.s3.amazonaws.com/i/62j2i9zf91agi13gsl6p.jpg" alt="Nested Software">
+        </a>
+        <div class="reading_time">
+          $ <%= @pet.price_per_hour %>/hour
         </div>
       </div>
     </div>
+  </div>
