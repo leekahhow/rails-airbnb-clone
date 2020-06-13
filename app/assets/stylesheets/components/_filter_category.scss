@@ -1,0 +1,30 @@
+.category_form {
+  text-align: center;
+}
+
+.radio {
+  display: none;
+}
+
+.picture {
+  width: 100px;
+  height: 100px;
+}
+
+.picture:hover {
+  opacity: 0.5;
+}
+
+.radio:checked + .picture {
+  opacity: 0.5;
+}
+
+
+.text {
+  text-align: center;
+}
+
+.search {
+  margin:auto;
+  display:block;
+}

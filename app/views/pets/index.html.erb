@@ -1,6 +1,5 @@
 <div class = "mx-auto" style="width: 800px;">
   <div id = 'container'>
-    <br>
     <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
     <br>
     <div class="text-center">
@@ -8,22 +7,19 @@
     </div>
     <br>
 
-    <!-- Search Bar-->
-    <%= form_tag pets_path, method: :get do %>
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
-    <br>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+    <!--Filter Category Icons-->
+    <%= render 'shared/filter_category'%>
 
     <br>
 
     <!-- Results from Search Bar-->
 
     <div class="cards">
-      <div class="row">
-        <%= render @pets %>
-      </div>
+       <div class="row">
+         <%= render @pets %>
+       </div>
     </div>
+
   </div>
 </div>
 
