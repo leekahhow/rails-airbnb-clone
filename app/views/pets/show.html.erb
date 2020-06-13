@@ -14,15 +14,23 @@
           <%= @pet.description %>
           <div class = "py-3">
             <% if @booking != nil && (@booking.status == "approved" || @booking.status == "pending") %>
-            <p> You already booked this pet! </p>
+          <div class = "py-2">
+            <button type="button" class="btn btn-secondary btn-block" disabled>Already booked(: </button>
+          </div>
+            <% elsif current_user.pets.include?(@pet) == true%>
+             <div class = "py-2">
+            <button type="button" class="btn btn-secondary btn-block" disabled>This is your pet(: </button>
+          </div>
             <% else %>
+                      <div class = "py-2">
             <%= link_to "Book This Pet", new_pet_booking_path(@pet), class: "btn btn-primary btn-block"%>
+          </div>
             <% end %>
             <% if current_user.pets.include?(@pet) == true %>
             <%= link_to "Delete Pet Listing", pet_path(@pet), method: 'delete', class: "btn btn-primary"%>
             <%= link_to "Edit Pet Listing", edit_pet_path(@pet), class: "btn btn-primary"%>
             <% end %>
-            <%= link_to "Back", :back, class: "btn btn-outline-dark"%>
+            <%= link_to "Back", :back, class: "btn btn-light btn-block"%>
             <%= render @pet.reviews %>
           </div>
 

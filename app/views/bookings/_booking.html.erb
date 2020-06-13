@@ -10,7 +10,7 @@
       <% if booking.status == "approved" %>
       <%= link_to "Create review", new_booking_review_path(booking.id), class: "btn btn-primary" %>
       <% end %>
-      <%= link_to "View Pet Details", pet_path(booking.pet_id), class: "btn btn-primary" %>
+      <%= link_to "View Pet Details", pet_path(booking.pet_id), class: "btn btn-secondary" %>
     </div>
     </div>
 
