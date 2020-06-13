@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     @booking.pet_id = params[:pet_id]
-    @booking.status = "pending"
+    @booking.status = "Pending"
 
     if @booking.save
       redirect_to bookings_path(@booking.user_id, @booking.id)
@@ -44,14 +44,14 @@ class BookingsController < ApplicationController
 
   def cancel
     @booking = Booking.find(params[:id])
-    @booking.status = "cancelled"
+    @booking.status = "Cancelled"
     @booking.save
     redirect_to bookings_path(@booking), notice: "Booking cancelled"
   end
 
   def approve
     @booking = Booking.find(params[:id])
-    @booking.status = "approved"
+    @booking.status = "Approved"
     @booking.save
     redirect_to bookings_path(@booking)
   end
