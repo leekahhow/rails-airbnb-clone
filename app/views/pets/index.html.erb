@@ -1,11 +1,11 @@
 <div class = "mx-auto" style="width: 800px;">
   <div id = 'container'>
     <br>
-      <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
+    <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
     <br>
-      <div class="text-center"'>
-    <h1>Pick your lovely <b>friend</b></h1>
-  </div>
+    <div class="text-center">
+      <h1>Pick your lovely <b>friend</b></h1>
+    </div>
     <br>
 
     <!-- Search Bar-->
@@ -18,47 +18,10 @@
     <br>
 
     <!-- Results from Search Bar-->
-    <% if  params[:query].present? && params[:query] != "" %>
-<div class = "mx-auto" style="width: 800px;">
-  <div class="cards">
-    <div class="row">
-      <% @pets.each do |pet| %>
-          <div class="col-4">
-            <div class="card-product">
-              <%= cl_image_tag pet.photo.key%>
-              <div class="card-product-infos">
-                <h2><%= link_to pet.name, pet_path(pet) %> </h2>
-                <p><%= pet.description %> </p>
-              </div>
-            </div>
-          </div>
-      <% end %>
+    <div class="cards">
+      <div class="row">
+        <%= render @pets %>
+      </div>
     </div>
-     <br>
-   </div>
-</div>
-
-    <% else %>
-
-<div class = "mx-auto" style="width: 800px;">
-  <div class="cards">
-    <div class="row">
-      <% @pets.each do |pet| %>
-          <div class="col-4">
-            <div class="card-product">
-              <%= cl_image_tag pet.photo.key%>
-              <div class="card-product-infos">
-                <h2><%= link_to pet.name, pet_path(pet) %> </h2>
-                <p><%= pet.description %> </p>
-              </div>
-            </div>
-          </div>
-      <% end %>
-    </div>
-     <br>
-   </div>
-</div>
-<% end %>
   </div>
-
 </div>

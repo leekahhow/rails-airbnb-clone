@@ -9,7 +9,7 @@
   <%= render  @bookings %>
 </div>
 
-<h1>People who booked your pets</h1>
+<h2>People who booked your pets</h2>
 <% @users_who_booked_user_pets.each do |user| %>
   <p><%= user.email %></p>
   <%= link_to 'Review the user', new_user_review_path(user) %>
