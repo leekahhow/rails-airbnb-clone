@@ -2,18 +2,14 @@ class PetsController < ApplicationController
   include PgSearch::Model
 
   def index
-    # if params[:query].present?
-    #   @pets = Pet.where("name ILIKE ?", "%#{params[:query]}%")
-    # else
-    #   @pets = Pet.all
-    # end
-
-    if params[:query].present?
-      sql_query = " \ categories.animal_type ILIKE :query \ "
-      @pets = Pet.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    @categories = Category.all
+    if params[:animal_type].present?
+      @category = Category.find_by_animal_type(params[:animal_type])
+      @pets = Pet.all.where(category_id: @category.id)
     else
       @pets = Pet.all
     end
+
 end
 
   def show
