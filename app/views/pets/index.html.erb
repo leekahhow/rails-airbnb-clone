@@ -1,16 +1,19 @@
 <div class = "mx-auto" style="width: 800px;">
   <div id = 'container'>
-
-    <h1 class="text-center mt-4">Pick your lovely friend</h1>
+    <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
     <br>
-
+    <div class="text-center">
+      <h1>Pick your lovely <b>friend</b></h1>
+    </div>
+    <br>
+    
+    <!--Filter Category Icons-->
     <%= render 'shared/filter_category'%>
+    
     <br>
 
     <!-- Results from Search Bar-->
     <%= render @pets %>
-
-
+    
   </div>
-
- </div>
+</div>
