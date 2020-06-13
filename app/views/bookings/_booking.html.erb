@@ -4,10 +4,14 @@
     <%= cl_image_tag booking.pet.photo.key%>
     <div class="card-product-infos">
       <h4><%= booking.pet.name %> </h4s>
-      <p><%= booking.status %> </p>
-      <p><%= booking.hours %> </p>
+      <p><b>Status:</b> <%= booking.status %> </p>
+      <p><b>Hours: </b><%= booking.hours %> </p>
+      <div class="py-0.5">
+      <% if booking.status == "approved" %>
       <%= link_to "Create review", new_booking_review_path(booking.id), class: "btn btn-primary" %>
+      <% end %>
       <%= link_to "View Pet Details", pet_path(booking.pet_id), class: "btn btn-primary" %>
+    </div>
     </div>
 
   </div>
