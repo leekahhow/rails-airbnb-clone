@@ -2,12 +2,12 @@
 
   <div class="card-product align-middle">
     <%= cl_image_tag booking.pet.photo.key, height: 400, width: 460%>
-    <div class="card-product-infos, mx-2"> <br>
+    <div class="card-product-infos"> <br>
       <h4><%= booking.pet.name %> </h4>
         <p><b>Status: </b><%= booking.status.capitalize %> </p>
         <p><b>Hours: </b><%= booking.hours %> </p>
         <% if booking.status == "approved" %>
-          <div class="pb-1">
+          <div class="p-1">
             <%= link_to "Create review", new_booking_review_path(booking.id), class: "btn btn-primary btn-sm" %>
             <% end %>
             <%= link_to "View Pet Details", pet_path(booking.pet_id), class: "btn btn-secondary btn-sm" %>
