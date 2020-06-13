@@ -1,6 +1,6 @@
 <br>
-<div class = "mx-auto" style="width: 400px;">
-
+<div class = "mx-auto" style="width: 500px;">
+      <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
 <h2><b>List a new pet</b></h2>
 
 <%= simple_form_for @pet do |f| %>
@@ -9,7 +9,7 @@
   <%= f.input :description %>
   <%= f.input :price_per_hour %>
   <%= f.input :photo, as: :file %>
-  <%= f.submit "List your pet!", class: "btn btn-primary"%>
+  <%= f.submit "List your pet!", class: "btn btn-primary btn-block"%>
 <% end %>
 </div>
 <br>

@@ -1,69 +1,29 @@
 <div class = "mx-auto" style="width: 800px;">
   <div id = 'container'>
-
-    <h1>Pick your lovely friend</h1>
+    <br>
+    <%= cl_image_tag("pets_vector_v52iru.png", class: "mx-auto d-block", :size => '500X500')%>
+    <br>
+    <div class="text-center">
+      <h1>Pick your lovely <b>friend</b></h1>
+    </div>
     <br>
 
     <!-- Search Bar-->
     <%= form_tag pets_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
-      <br>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search a Pet Type. E.g. Cat, Dog, etc." %>
+    <br>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
 
     <br>
 
     <!-- Results from Search Bar-->
-    <% if  params[:query].present? && params[:query] != "" %>
-<div class = "mx-auto" style="width: 800px;">
-  <div class="cards">
-    <div class="row">
-      <% @pets.each do |pet| %>
-          <div class="col-4">
-            <div class="card-product">
-            <%= cl_image_tag pet.photo.key%>
-            </div>
 
-            <div class="card-product-infos">
-              <h2><%= link_to pet.name, pet_path(pet) %> </h2>
-              <p><%= pet.description %> </p>
-            </div>
-          </div>
+    <div class="cards">
+      <div class="row">
+        <%= render @pets %>
+      </div>
     </div>
-      <% end %>
-  </div>
-     <br>
-</div>
-
-    <% else %>
-
-<div class = "mx-auto" style="width: 800px;">
-  <div class="cards">
-    <div class="row">
-      <% @pets.each do |pet| %>
-          <div class="col-4">
-            <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
 </div>
-
-          </div>
-      <% end %>
-    </div>
-     <br>
-   </div>
-</div>
-
-    <% end %>
-
-  </div>
-
- </div>
 
