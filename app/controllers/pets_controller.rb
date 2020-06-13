@@ -56,4 +56,9 @@ end
     params.require(:pet).permit(:name, :description, :price_per_hour, :category_id, :photo)
   end
 
+  def category_params
+    params.require(:category).permit(:photo)
+  end
+
+
 end

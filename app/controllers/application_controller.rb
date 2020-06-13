@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     @disable_nav = params[:controller] == "pages" && params[:action] == "home"
   end
 
+  def category_params
+    params.require(:category).permit(:photo)
+  end
+
 end
 
 
