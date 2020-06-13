@@ -5,7 +5,7 @@
 <br>
   <h1>Profile </h1>
   <br>
-  <%= cl_image_tag current_user.photo.key, height: 300, width: 460 %>
+  <%= cl_image_tag current_user.photo.key, height: 400, width: 460 %>
 
   <p><b>Name: </b><%= current_user.name %></p>
   <p><b>Email Address: </b><%= current_user.email %></p>
@@ -31,15 +31,9 @@
     <br>
   <hr/>
       <p><b>Reviews:</b></p>
-      <!-- name of reviewer -->
-
-      <% @users_who_left_reviews.each do |user| %>
-      <p><%= user.name %></p>
-      <% end %>
-
       <% @reviews.each do |review| %>
-      <li>Rate : <%= review.rating %> <br>
-        Description : <%= review.description %></li>
+       Rating : <%= review.rating %> <br>
+        Description : <%= review.description %>
         <% end %>
 
 </div>
